@@ -1,0 +1,55 @@
+.a-login {
+  font: normal normal normal 12px/28px Avenir Next LT Pro;
+  letter-spacing: 0px;
+  color: #4d4d4d;
+}
+
+.bgc-dark-green {
+  width: 100%;
+  height: 95%;
+  background-color: rgb(0, 81, 64);
+}
+
+.bgc-ligth-green {
+  width: 100%;
+  height: 5%;
+  background-color: rgb(0, 255, 0);
+}
+
+.pad-left-10 {
+  padding-left: 10px;
+}
+
+.login-div {
+  border: solid 4px rgb(0, 255, 0);
+  background-color: white;
+  margin-top: 2%;
+  padding: 2% 5%;
+}
+
+.login-footer {
+  align-content: flex-end;
+  height: 100%;
+}
+
+.center {
+  text-align: center;
+}
+
+.login-title {
+  color: rgb(0, 81, 64);
+  font: normal normal bold 20px/23px Montserrat;
+}
+
+.login-text {
+  font: normal normal normal 16px/19px Avenir Next LT Pro;
+  letter-spacing: 0px;
+  color: #004b40;
+}
+
+.green-button {
+  background: #1eeb00 0% 0% no-repeat padding-box;
+  border-radius: 24px;
+  opacity: 1;
+  font-weight: 600;
+}

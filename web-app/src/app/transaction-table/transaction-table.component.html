@@ -1,0 +1,160 @@
+<form [formGroup]="form">
+  <div
+    fxLayout="row"
+    fxLayout.xs="column"
+    fxLayout.sm="column"
+    style="margin-left: 2%; margin-right: 2%"
+  >
+    <div fxFlex="28">
+      <mat-icon class="select-icon">calendar_today</mat-icon>
+      <mat-form-field fxFlex>
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" />
+        <mat-datepicker-toggle matSuffix [for]="picker">
+        </mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div fxFlex="3"></div>
+    <div fxFlex="50"></div>
+    <div fxFlex="3"></div>
+    <div fxFlex="16" class="text-center">
+      <button
+        mat-raised-button
+        class="dark-green-button"
+        (click)="search()"
+        fxFlex
+        fxHide.xs
+        fxHide.sm
+      >
+        <span class="white-color">&nbsp; Limpiar filtros &nbsp;</span>
+      </button>
+    </div>
+  </div>
+  <div
+    fxLayout="row"
+    fxLayout.xs="column"
+    fxLayout.sm="column"
+    style="margin-left: 2%; margin-right: 2%"
+  >
+    <div fxFlex="28">
+      <mat-icon class="select-icon">search</mat-icon>
+      <mat-form-field fxFlex>
+        <mat-label>Select an option</mat-label>
+        <mat-select [formControl]="filterField">
+          <mat-option class="bgc-option" value="1">Nombre</mat-option>
+          <mat-option value="2">Cel</mat-option>
+          <mat-option class="bgc-option" value="3">Email</mat-option>
+          <mat-option value="4">Fecha de compra</mat-option>
+          <mat-option class="bgc-option" value="5">Edad</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div fxFlex="3"></div>
+    <div fxFlex="50">
+      <mat-form-field fxFlex>
+        <input
+          matInput
+          type="text"
+          placeholder="Buscar"
+          formControlName="filterValue"
+          maxlength="40"
+          required
+        />
+      </mat-form-field>
+    </div>
+    <div fxFlex="3"></div>
+    <div fxFlex="16" class="text-center">
+      <div fxLayout="column">
+        <button
+          mat-raised-button
+          class="ligth-green-button"
+          (click)="search()"
+          fxFlex
+        >
+          <span> &nbsp; Buscar &nbsp; </span>
+        </button>
+        <button
+          mat-raised-button
+          class="dark-green-button"
+          (click)="search()"
+          fxFlex
+          fxHide.gt-sm
+        >
+          <span class="white-color">&nbsp; Limpiar filtros &nbsp;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+<div class="pad-table">
+  <div class="header">
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <div
+        *ngFor="let header of headers"
+        class="text-center table-row"
+        fxFlex="20"
+      >
+        <h3 *ngIf="header !== 'Saldo en compras'" class="header-text">
+          {{ header }}
+        </h3>
+        <h3 *ngIf="header === 'Saldo en compras'" class="header-text">
+          Compras
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div
+    *ngFor="let item of itemsToShow"
+    fxLayout="row"
+    fxLayoutAlign="center center"
+  >
+    <div class="text-center table-row" fxFlex="20">
+      <p class="row-text">{{ item.names }}</p>
+    </div>
+    <div class="text-center table-row" fxFlex="20">
+      <p class="row-text">{{ item.phonenumber }}</p>
+    </div>
+    <div class="text-center table-row" fxFlex="20">
+      <p class="row-text">{{ item.email }}</p>
+    </div>
+    <div class="text-center table-row" fxFlex="20">
+      <p class="row-text">{{ item.purchases }}</p>
+    </div>
+    <div class="text-center table-row" fxFlex="20">
+      <p class="row-text">{{ item.age }}</p>
+    </div>
+  </div>
+
+  <div
+    class="paginator"
+    *ngIf="items.length > 10"
+    fxLayout="row"
+    fxLayoutAlign="flex-end"
+  >
+    <mat-icon
+      class="green-light-color pointer"
+      (click)="paginationEvent(pageIndex - 1)"
+      >arrow_back_ios</mat-icon
+    >
+    <div
+      *ngFor="let numPage of pageOptions"
+      style="margin-right: 2%; margin-left: 2%"
+    >
+      <div class="index-color pointer" (click)="paginationEvent(numPage - 1)">
+        <p>{{ numPage }}</p>
+      </div>
+    </div>
+    <mat-icon
+      class="green-light-color pointer"
+      (click)="paginationEvent(pageIndex + 1)"
+      style="margin-left: 0.5%"
+      >arrow_forward_ios</mat-icon
+    >
+  </div>
+</div>
+<div fxLayout="row" style="margin-left: 2%; margin-top: 2%; margin-bottom: 2%">
+  <button mat-raised-button class="dark-green-button" (click)="downloadExcel()">
+    <span class="white-color">&nbsp; Descargar Excel &nbsp;</span>
+  </button>
+</div>

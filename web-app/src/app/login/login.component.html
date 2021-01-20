@@ -1,0 +1,151 @@
+<div class="bgc-dark-green">
+  <div fxLayout="row" style="padding: 15px">
+    <div>
+      <img src="../../assets/images/NecesitasAyuda.svg" />
+    </div>
+    <div class="center">
+      <span class="white-color pad-left-10">¿Necesitas ayuda?</span>
+    </div>
+  </div>
+
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <img src="../../assets/images/LogoEmpresas_V2.png" />
+    </div>
+    <div
+      *ngIf="!isLogin"
+      class="login-div"
+      fxLayout="column"
+      fxLayoutAlign="center center"
+    >
+      <div style="margin-top: 8%">
+        <span class="login-title"> INGRESA A TU CUENTA </span>
+        <div style="margin-top: 10%">
+          <form [formGroup]="form">
+            <div class="push-bottom-sm">
+              <mat-form-field fxFlex>
+                <input
+                  matInput
+                  type="text"
+                  placeholder="Usuario"
+                  formControlName="user"
+                  maxlength="40"
+                  required
+                />
+                <mat-error *ngIf="user.invalid && (user.dirty || user.touched)">
+                  <span *ngIf="user?.errors.required">
+                    El nombre es requerido.
+                  </span>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="push-bottom-sm">
+              <mat-form-field fxFlex>
+                <input
+                  matInput
+                  type="password"
+                  placeholder="Contraseña"
+                  formControlName="password"
+                  maxlength="40"
+                  required
+                />
+                <mat-error *ngIf="user.invalid && (user.dirty || user.touched)">
+                  <span *ngIf="user?.errors.required">
+                    La contraseña es requerido.
+                  </span>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </form>
+        </div>
+        <div style="margin-bottom: 4%; margin-top: 2%">
+          <button
+            mat-raised-button
+            class="green-button"
+            (click)="submit()"
+            [disabled]="form.invalid"
+          >
+            &nbsp; INGRESAR &nbsp;
+          </button>
+        </div>
+        <div>
+          <a class="a-login" href="">Olvidé mi PIN</a>
+        </div>
+        <div>
+          <a class="a-login" href="">Olvide mi número de celular empresarial</a>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isLogin" class="login-div">
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <div>
+          <img src="../../assets/images/Escudo.svg" />
+        </div>
+        <div
+          fxLayout="column"
+          fxLayoutAlign="center center"
+          style="margin-top: 6%"
+        >
+          <p class="login-title">INGRESO SEGURO</p>
+          <p class="login-text" style="margin: 0">
+            Un código de verificacion fue enviado a tu correo,
+          </p>
+          <p class="login-text">porfavor introdúcelo.</p>
+        </div>
+      </div>
+      <form [formGroup]="form">
+        <div class="push-bottom-sm">
+          <mat-form-field fxFlex>
+            <input
+              class="center"
+              matInput
+              type="text"
+              placeholder="Ingresa tu código de verificación"
+              formControlName="verificationCode"
+              maxlength="6"
+              required
+            />
+            <mat-error
+              *ngIf="
+                verificationCode.invalid &&
+                (verificationCode.dirty || verificationCode.touched)
+              "
+            >
+              <span *ngIf="verificationCode?.errors.required">
+                El código de verificación es requerido.
+              </span>
+            </mat-error>
+            <mat-error *ngIf="verificationCode.invalid">
+              <span *ngIf="verificationCode?.errors.invalidCode">
+                El código no es correcto.
+              </span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </form>
+
+      <div
+        fxLayout="row"
+        fxLayoutAlign="center center"
+        style="margin-bottom: 4%; margin-top: 2%"
+      >
+        <button
+          mat-raised-button
+          class="green-button"
+          (click)="signIn()"
+          [disabled]="form.invalid"
+        >
+          &nbsp; ENTRAR &nbsp;
+        </button>
+      </div>
+    </div>
+    <div style="margin-top: 3%">
+      <a href="" class="white-color">¿Quieres vincular tu empresa a Coink?</a>
+    </div>
+  </div>
+</div>
+<div class="bgc-ligth-green">
+  <div class="login-footer" fxLayout="column" fxLayoutAlign="space-around end">
+    <div style="padding-right: 2%">Copyright © 2020 Coink S.A</div>
+  </div>
+</div>

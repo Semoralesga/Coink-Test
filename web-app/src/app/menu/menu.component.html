@@ -1,0 +1,70 @@
+<mat-toolbar class="bgc-dark-green">
+  <mat-icon class="white-color" (click)="toggle()" fxHide.gt-sm>menu</mat-icon>
+</mat-toolbar>
+
+<div *ngIf="!menu" fxLayout="row" fxLayout="space-around">
+  <div class="menu-div" fxFlex="15" fxHide.xs fxHide.sm>
+    <div class="menu-title">
+      <span>MENU</span>
+    </div>
+    <div fxLayout="column" style="height: 416px; margin-top: 60%">
+      <div class="menu-box" fxFlex="12"></div>
+      <div class="menu-box" fxFlex="12"></div>
+      <div class="menu-box" fxFlex="12"></div>
+      <div class="menu-box" fxFlex="12"></div>
+      <div class="menu-box" fxFlex="12"></div>
+      <div class="menu-box" fxFlex="12"></div>
+      <div class="menu-box" fxFlex="12"></div>
+      <div class="menu-box" fxFlex="12"></div>
+    </div>
+    <div
+      class="red-color pointer"
+      fxLayout="row"
+      fxLayoutAlign="center center"
+      style="margin-top: 70%"
+      (click)="logout()"
+    >
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Cerrar sesión</span>
+    </div>
+  </div>
+
+  <div fxFlex="85" fxFlex.xs="100" fxFlex.sm="100">
+    <div class="content-title">
+      <span> CONSULTAS - COMPRADOS CON EL COFRE </span>
+    </div>
+    <div *ngIf="transactions">
+      <app-transaction-table
+        [transactions]="transactions"
+      ></app-transaction-table>
+      <div fxLayout="column" fxLayoutAlign="center center"></div>
+    </div>
+  </div>
+</div>
+<div *ngIf="menu">
+  <div fxFlex="100">
+    <div class="menu-title">
+      <span>MENU</span>
+    </div>
+    <div fxLayout="column" style="height: 416px; margin-top: 20%">
+      <div class="menu-box" fxFlex="12"></div>
+      <div class="menu-box" fxFlex="12"></div>
+      <div class="menu-box" fxFlex="12"></div>
+      <div class="menu-box" fxFlex="12"></div>
+      <div class="menu-box" fxFlex="12"></div>
+      <div class="menu-box" fxFlex="12"></div>
+      <div class="menu-box" fxFlex="12"></div>
+      <div class="menu-box" fxFlex="12"></div>
+    </div>
+    <div
+      class="red-color pointer"
+      fxLayout="row"
+      fxLayoutAlign="center center"
+      style="margin-top: 20%"
+      (click)="logout()"
+    >
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Cerrar sesión</span>
+    </div>
+  </div>
+</div>
