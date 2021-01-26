@@ -110,7 +110,7 @@ export class ApiService {
     };
     console.log({
       payload: this.cryptoService.encrypt(
-        `{"begin_date":"2021-01-01T14:31:10.828Z","end_date":"2021-01-17T14:31:10.828Z","vault_id":"b73bde9f-6891-4b2e-847e-484be1830794","filter_value":"","filter_field":""}`
+        `{"vault_id":"b73bde9f-6891-4b2e-847e-484be1830794","begin_date":"2019-01-22T01:51:59.693Z","end_date":"2021-01-22T01:51:59.693Z","filter_field":"","filter_value":"","items_per_page":4,"page":0}`
       ),
     });
     console.log(
@@ -122,7 +122,7 @@ export class ApiService {
         `${environment.apiUrl}/pockets/reports/transactions/purchases/export?apiKey=${environment.apiKey}`,
         {
           payload: this.cryptoService.encrypt(
-            `{"begin_date":"2020-01-01T14:31:10.828Z","end_date":"2021-01-19T14:31:10.828Z","vault_id":"b73bde9f-6891-4b2e-847e-484be1830794","filter_value":"","filter_field":""}`
+            `{"vault_id":"b73bde9f-6891-4b2e-847e-484be1830794","begin_date":"2019-01-22T01:51:59.693Z","end_date":"2021-01-22T01:51:59.693Z","filter_field":"","filter_value":"","items_per_page":4,"page":0}`
           ),
         },
         httpOptions
