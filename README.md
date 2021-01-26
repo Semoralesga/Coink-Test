@@ -11,5 +11,4 @@ La web-app se desarrollo en Angular 9 con Node 10.22.
 
 ### Pendientes
 
-- Exportar el reporte la peticion retorna status 500
 - Conociendo los parametros corrector para filtros y fechas enlazar los valores del formulario con la peticion.
