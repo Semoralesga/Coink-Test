@@ -3,7 +3,7 @@
 La web-app se desarrollo en Angular 9 con Node 10.22.
 
 ### Login
-- El login pide el email del usuario y contrasena, el boton de ingresar no se activa hasta que estos campso hayan sido llenados.
+- El login pide el email del usuario(pruebatest@yopmail.com) y contrasena(pwdTest123#), el boton de ingresar no se activa hasta que estos campso hayan sido llenados.
 - Una vez se haya ingresado en la ventana de factor de doble autenticacion el codigo es `123456`, otro valor presentara error.
 
 ### Menu
