@@ -1,9 +1,9 @@
 # Coink-Test-2021
 
-La web-app se desarrollo en Angular 9 con Node 10.22.
+La web-app se desarrollo en Angular 9 con Node 10.22, se debe hacer npm install y ng serve para ejcutar el proyecto localmente.
 
 ### Login
-- El login pide el email del usuario(pruebatest@yopmail.com) y contrasena(pwdTest123#), el boton de ingresar no se activa hasta que estos campso hayan sido llenados.
+- El login pide el email del usuario(pruebatest@yopmail.com) y contrasena(pwdTest123#), el boton de ingresar no se activa hasta que estos campos hayan sido llenados.
 - Una vez se haya ingresado en la ventana de factor de doble autenticacion el codigo es `123456`, otro valor presentara error.
 
 ### Menu
